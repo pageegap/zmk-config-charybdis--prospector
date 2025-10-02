@@ -8,7 +8,6 @@
 #define MEDIA 3
 #define MOUSE 4
 #define SCROLL 5
-#define EXTRAS 6
 #define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 19 20 21 22  // Left-hand keys.
 #define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 16 15 14 13  // Right-hand keys.
 #define THUMBS 36 37 38 39 40  // Thumb keys.
@@ -269,13 +268,13 @@
             bindings = <
 
 // ╭───────────────┬────────────────┬────────────────┬─────────────────┬─────────────────┬──────╮  ╭──────┬──────────────────┬──────────────────┬─────────────────┬────────────────────────┬─────────────╮
-    &kp CAPSLOCK &kp Q            &kp W            &kp E             &kp R             &kp T      &kp Y       &kp U               &kp I              &kp O               &kp P              &lt 6 ENTER
+    &kp CAPSLOCK &kp Q            &kp W            &kp E             &kp R             &kp T      &kp Y       &kp U               &kp I              &kp O               &kp P              &lt 5 ENTER
 // ├───────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┼─────────────────┼────────────────────────┼─────────────┤
     &kp BACKSPACE   &ht_left LCMD A  &ht_left LALT S  &ht_left LCTRL D  &ht_left  LSHFT F  &kp G    &kp H   &ht_right RSHFT J  &ht_right RCTRL K  &ht_right LALT L  &ht_right RCMD SEMICOLON   &kp SQT
 // ├───────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┼─────────────────┼────────────────────────┼─────────────┤
     &kp  LSHFT        &lt 1 Z           &kp X            &kp C            &kp V             &kp B    &kp N    &kp M              &kp COMMA    &kp PERIOD  &lt 2 SLASH            &kp RSHFT
 // ╰───────────────┴────────────────┴────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┴─────────────────┴────────────────────────┴─────────────╯
-                                                             &td_bs 3 MB1 &kp BACKSPACE  &showscreen     &kp DELETE  &kp SPACE  
+                                                             &td_bs 3 MB1 &kp BACKSPACE  &showscreen     &kp DELETE  &kp SPACE
                                                          // ╰──────────────────┴─────────┴──────╯  ╰──────────┴──────────────╯
             >;
         };
@@ -329,16 +328,6 @@
                         &trans  &trans  &trans    &trans  &trans
             >;
         };
-
-        EXTRAS {
-            display-name = "Adjustments";
-            bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3  &out OUT_TOG         &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3  &out OUT_TOG         &bt BT_CLR
-&trans       &trans           &none           &none           &none           &kp trans    &none        &kp trans  &kp trans  &kp trans    &kp trans           &none
-&kp trans   &kp trans  &kp trans   &kp trans   &kp trans  &none                  &kp trans      &kp trans      &kp trans &kp trans  &kp trans  &none
-                                                                                   &none  &none  &none    &none         &none
-            >;
-        };
-
+        
     };
 };
