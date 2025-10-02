@@ -115,6 +115,51 @@
 
             mods = <(MOD_LSFT)>;
         };
+
+        td_bs: td_bs {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <280>;
+            hold-while-undecided;
+            bindings = <&mo>, <&mkp>;
+        };
+        showscreen: showscreen {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&kp LC(UP_ARROW)>, <&kp LG(UP_ARROW)>;
+        };
+        // Left-hand HRM
+        ht_left: left_side_homerow_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+        // Right-hand HRM
+        ht_right: right_side_homerow_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+        td_esc_scrl_slow: td_esc_scrl_slow {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&lt 5 ESC>, <&mo 6>; // hold, tap, double_tap
+        };
     };
 
     combos {
@@ -187,59 +232,64 @@
         compatible = "zmk,keymap";
 
         BASE {
-            display-name = "BASE";
+            display-name = "Eduardo";
             bindings = <
 
-&kp GRAVE       &kp Q             &kp W       &kp E               &kp R          &kp T           &kp Y       &kp U         &kp I                &kp O       &kp P       &kp LEFT_BRACKET
-&kp TAB         &kp A             &kp S       &u_mt LEFT_SHIFT D  &kp F          &kp G           &kp H       &kp J         &u_mt RIGHT_SHIFT K  &kp L       &kp SEMI    &kp APOS
-&kp LEFT_SHIFT  &kp Z             &kp X       &kp C               &kp V          &kp B           &kp N       &kp M         &kp COMMA            &kp DOT     &kp FSLH    &u_mt RIGHT_SHIFT RIGHT_BRACKET
-                                              &kp BACKSPACE       &u_lt 5 SPACE  &mo 1           &kp LCTRL   &kp LEFT_WIN
+// ╭───────────────┬────────────────┬────────────────┬─────────────────┬─────────────────┬──────╮  ╭──────┬──────────────────┬──────────────────┬─────────────────┬────────────────────────┬─────────────╮
+    &kp CAPSLOCK &kp Q            &kp W            &kp E             &kp R             &kp T      &kp Y       &kp U               &kp I              &kp O               &kp P              &lt 5 ENTER
+// ├───────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┼─────────────────┼────────────────────────┼─────────────┤
+    &kp BACKSPACE   &ht_left LCMD A  &ht_left LALT S  &ht_left LCTRL D  &ht_left  LSHFT F  &kp G    &kp H   &ht_right RSHFT J  &ht_right RCTRL K  &ht_right LALT L  &ht_right RCMD SEMICOLON   &kp SQT
+// ├───────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┼─────────────────┼────────────────────────┼─────────────┤
+    &kp  LSHFT        &lt 1 Z           &kp X            &kp C            &kp V             &kp B    &kp N    &kp M              &kp COMMA    &kp PERIOD  &lt 2 SLASH            &kp RSHFT
+// ╰───────────────┴────────────────┴────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┴─────────────────┴────────────────────────┴─────────────╯
+                                                             &td_bs 3 MB1 &kp BACKSPACE  &showscreen     &kp DELETE  &kp SPACE
+                                                         // ╰──────────────────┴─────────┴──────╯  ╰──────────┴──────────────╯
             >;
         };
 
         NAVNUM {
-            display-name = "NAVNUM";
+            display-name = "Numbers";
             bindings = <
-&none    &none   &kp HOME      &kp UP        &kp END        &kp INSERT    &kp PAGE_UP      &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none         &none
-&none    &none   &kp LEFT      &kp DOWN      &kp RIGHT      &kp ENTER     &kp PAGE_DOWN    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_0  &none
-&none    &none   &kp LC(LEFT)  &kp CAPSLOCK  &kp LC(RIGHT)  &kp DELETE    &kp PRINTSCREEN  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none         &none
-                               &trans        &trans         &trans        &trans           &trans
+    &trans    &trans  &trans        &trans           &trans        &trans         &trans   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans
+    &trans    &none   &trans        &kp LC(LS(TAB))  &kp LC(TAB)   &trans         &trans   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans  &trans
+    &trans    &trans  &kp LEFT_GUI  &mkp MB4         &mkp MB1      &mkp MB5       &trans   &kp N7        &kp N8        &kp N9        &kp NUMBER_0  &trans
+                                    &trans   &kp TAB       &kp CAPSLOCK           &kp TAB    &trans  
             >;
         };
 
         SYMBOL {
-            display-name = "SYMBOL";
+            display-name = "Symbols";
             bindings = <
-&none  &none          &kp LESS_THAN         &kp EQUAL  &kp GREATER_THAN       &kp GRAVE    &none        &kp LEFT_BRACKET  &kp UNDERSCORE  &kp RIGHT_BRACKET  &none            &none
-&none  &kp BACKSLASH  &kp LEFT_PARENTHESIS  &kp MINUS  &kp RIGHT_PARENTHESIS  &kp PLUS     &kp PERCENT  &kp LEFT_BRACE    &kp SEMICOLON   &kp RIGHT_BRACE    &kp EXCLAMATION  &none
-&none  &none          &kp ASTERISK          &kp COLON  &kp SLASH              &none        &none        &kp PIPE          &kp TILDE       &kp AMPERSAND      &none            &none
-                                            &trans     &trans                 &mo 3        &trans       &trans
+     &trans   &kp SQT     &kp PERCENT  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH                &kp PIPE         &kp AMPERSAND  &kp ASTERISK  &kp GRAVE      &trans  &trans
+     &trans   &kp DQT     &kp AT_SIGN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE               &kp EXCLAMATION  &kp EQUAL      &kp PLUS      &kp MINUS      &trans  &trans
+     &trans   &kp NON_US_BACKSLASH  &kp LCTRL    &kp LEFT_BRACKET      &kp RIGHT_BRACKET    &kp DOLLAR      &kp RIGHT_GUI    &mkp MB1       &mkp MB2   &td_esc_scrl_slow &trans &trans
+                                           &trans                &trans                 &trans              &trans  &kp TAB 
             >;
         };
 
         MEDIA {
-            display-name = "MEDIA";
+            display-name = "Adjustments";
             bindings = <
 
-&none  &none  &none  &none   &none   &none     &none   &none              &none             &none            &none  &none
-&none  &none  &none  &none   &none   &none     &none   &kp C_VOLUME_DOWN  &kp C_MUTE        &kp C_VOLUME_UP  &none  &none
-&none  &none  &none  &none   &none   &none     &none   &kp C_PREV         &kp C_PLAY_PAUSE  &kp C_NEXT       &none  &none
-                     &trans  &trans  &trans    &trans  &trans
+&bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3  &out OUT_TOG         &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3  &out OUT_TOG         &bt BT_CLR
+&trans       &trans           &none           &none           &none           &kp trans    &none         &kp trans  &kp trans   &kp trans    &kp trans           &kp trans
+&kp trans   &kp trans   &kp trans    &kp trans   &kp trans  &none                   &kp trans      &kp trans      &kp trans  &kp trans   &kp trans  &kp trans
+                                                                                   &none  &none  &none    &none         &none
             >;
         };
 
         MOUSE {
-            display-name = "MOUSE";
+            display-name = "Mouse";
             bindings = <
 &trans  &trans  &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
-                        &mkp RCLK  &trans  &mkp LCLK    &trans  &trans
+                        &mkp LCLK  &trans  &mkp RCLK    &trans  &trans
             >;
         };
 
         SCROLL {
-            display-name = "SCROLL";
+            display-name = "Scroll";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
