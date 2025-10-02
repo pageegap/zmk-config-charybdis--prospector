@@ -155,11 +155,11 @@
             hold-trigger-on-release;
         };
         td_esc_scrl_slow: td_esc_scrl_slow {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <150>;
-            bindings = <&lt 5 ESC>, <&mo 6>; // hold, tap, double_tap
-        };
+-            compatible = "zmk,behavior-tap-dance";
+-            #binding-cells = <0>;
+-            tapping-term-ms = <150>;
+-            bindings = <&lt 5 ESC>, <&mo 6>; // hold, tap, double_tap
+-        };
     };
 
     combos {
@@ -258,38 +258,38 @@
         };
 
         SYMBOL {
-            display-name = "Symbols";
+            display-name = "S";
             bindings = <
-     &trans   &kp SQT     &kp PERCENT  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH                &kp PIPE         &kp AMPERSAND  &kp ASTERISK  &kp GRAVE      &trans  &trans
-     &trans   &kp DQT     &kp AT_SIGN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE               &kp EXCLAMATION  &kp EQUAL      &kp PLUS      &kp MINUS      &trans  &trans
-     &trans   &kp NON_US_BACKSLASH  &kp LCTRL    &kp LEFT_BRACKET      &kp RIGHT_BRACKET    &kp DOLLAR      &kp RIGHT_GUI    &mkp MB1       &mkp MB2   &td_esc_scrl_slow &trans &trans
-                                           &trans                &trans                 &trans              &trans  &kp TAB 
+&none  &none          &kp LESS_THAN         &kp EQUAL  &kp GREATER_THAN       &kp GRAVE    &none        &kp LEFT_BRACKET  &kp UNDERSCORE  &kp RIGHT_BRACKET  &none            &none
+&none  &kp BACKSLASH  &kp LEFT_PARENTHESIS  &kp MINUS  &kp RIGHT_PARENTHESIS  &kp PLUS     &kp PERCENT  &kp LEFT_BRACE    &kp SEMICOLON   &kp RIGHT_BRACE    &kp EXCLAMATION  &none
+&none  &none          &kp ASTERISK          &kp COLON  &kp SLASH              &none        &none        &kp PIPE          &kp TILDE       &kp AMPERSAND      &none            &none
+                                            &trans     &trans                 &mo 3        &trans       &trans
             >;
         };
 
         MEDIA {
-            display-name = "Adjustments";
+            display-name = "MEDIA";
             bindings = <
 
-&bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3  &out OUT_TOG         &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3  &out OUT_TOG         &bt BT_CLR
-&trans       &trans           &none           &none           &none           &kp trans    &none         &kp trans  &kp trans   &kp trans    &kp trans           &kp trans
-&kp trans   &kp trans   &kp trans    &kp trans   &kp trans  &none                   &kp trans      &kp trans      &kp trans  &kp trans   &kp trans  &kp trans
-                                                                                   &none  &none  &none    &none         &none
+&none  &none  &none  &none   &none   &none     &none   &none              &none             &none            &none  &none
+&none  &none  &none  &none   &none   &none     &none   &kp C_VOLUME_DOWN  &kp C_MUTE        &kp C_VOLUME_UP  &none  &none
+&none  &none  &none  &none   &none   &none     &none   &kp C_PREV         &kp C_PLAY_PAUSE  &kp C_NEXT       &none  &none
+                     &trans  &trans  &trans    &trans  &trans
             >;
         };
 
         MOUSE {
-            display-name = "Mouse";
+            display-name = "MOUSE";
             bindings = <
 &trans  &trans  &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
-                        &mkp LCLK  &trans  &mkp RCLK    &trans  &trans
+                        &mkp RCLK  &trans  &mkp LCLK    &trans  &trans
             >;
         };
 
         SCROLL {
-            display-name = "Scroll";
+            display-name = "SCROLL";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
