@@ -224,6 +224,38 @@
             bindings = <&mkp MCLK>;
             key-positions = <49 52>;
         };
+                righ_enter {
+            key-positions = <31 32>;
+            bindings = <&kp ENTER>;
+        };
+
+        left_enter {
+            bindings = <&mkp MB1>;
+            key-positions = <27 28>;
+        };
+
+        lockscreen {
+            bindings = <&kp LG(LC(Q))>;
+            key-positions = <05 06>;
+        };
+
+        printscreen {
+            bindings = <&kp LG(RS(N5))>;
+            key-positions = <17 18>;
+        };
+        escsombo {
+            bindings = <&kp ESC>;
+            key-positions = <7 8>;
+        };
+    };
+
+    macros {
+        new_line: new_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(E) &kp ENTER>;
+            label = "NEW_LINE";
+        };
     };
 
     chosen { zmk,physical-layout = &charybdis_6col_layout; };
