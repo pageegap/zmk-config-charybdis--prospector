@@ -283,7 +283,7 @@
 &kp CAPSLOCK   &kp Q            &kp W            &kp E             &kp R             &kp T          &kp Y       &kp U              &kp I              &kp O             &kp P                     &lt 6 ENTER
 &kp BACKSPACE  &ht_left LCMD A  &ht_left LALT S  &ht_left LCTRL D  &ht_left LSHFT F  &kp G          &kp H       &ht_right RSHFT J  &ht_right RCTRL K  &ht_right LALT L  &ht_right RCMD SEMICOLON  &kp SQT
 &kp LSHFT      &lt 1 Z          &kp X            &kp C             &kp V             &kp B          &kp N       &kp M              &kp COMMA          &kp PERIOD        &lt 2 SLASH               &kp RSHFT
-                                                 &td_bs 3 MB1      &kp BACKSPACE     &showscreen    &kp DELETE  &kp SPACE
+                                                 &lt 3 ENTER       &kp BACKSPACE     &showscreen    &kp DELETE  &kp SPACE
             >;
         };
 
@@ -310,10 +310,10 @@
         MEDIA {
             display-name = "Move";
             bindings = <
-&trans  &trans   &trans    &trans    &trans    &trans      &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans     &trans
-&trans  &kp F12  &kp F7    &kp F8    &kp F10   &trans      &trans  &kp LEFT    &kp UP_ARROW     &kp DOWN_ARROW     &kp RIGHT  &trans
-&trans   &lt 5 Z   &mkp MB4  &mkp MB2  &mkp MB1  &mkp MB5    &trans  &new_line   &kp HOME         &kp END            &trans     &trans
-                           &trans    &trans    &trans      &trans  &trans
+&trans  &trans        &trans    &trans    &trans    &trans      &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans     &trans
+&trans  &kp F12       &kp F7    &kp F8    &kp F10   &trans      &trans  &kp LEFT    &kp UP_ARROW     &kp DOWN_ARROW     &kp RIGHT  &trans
+&trans  &lt 5 ESCAPE  &mkp MB4  &mkp MB2  &mkp MB1  &mkp MB5    &trans  &new_line   &kp HOME         &kp END            &trans     &trans
+                                &trans    &trans    &trans      &trans  &trans
             >;
         };
 
