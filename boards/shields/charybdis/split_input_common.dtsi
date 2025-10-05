@@ -33,17 +33,6 @@
       layers = <SCROLL>;
       input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
     };
-
-    move {
-      layers = <BASE MOUSE>;
-      input-processors = <&auto_mouse_layer MOUSE 200>;
-    };
-  };
-
-  auto_mouse_layer: auto_mouse_layer {
-    compatible = "zmk,input-processor-temp-layer";
-    #input-processor-cells = <2>;
-    require-prior-idle-ms = <500>;
   };
 };
 
