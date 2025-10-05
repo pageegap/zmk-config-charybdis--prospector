@@ -122,7 +122,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             hold-while-undecided;
             bindings = <&mo>, <&mkp>;
         };
@@ -283,7 +283,7 @@
 &kp CAPSLOCK   &kp Q            &kp W            &kp E             &kp R             &kp T          &kp Y       &kp U              &kp I              &kp O             &kp P                     &lt 6 ENTER
 &kp BACKSPACE  &ht_left LCMD A  &ht_left LALT S  &ht_left LCTRL D  &ht_left LSHFT F  &kp G          &kp H       &ht_right RSHFT J  &ht_right RCTRL K  &ht_right LALT L  &ht_right RCMD SEMICOLON  &kp SQT
 &kp LSHFT      &lt 1 Z          &kp X            &kp C             &kp V             &kp B          &kp N       &kp M              &kp COMMA          &kp PERIOD        &lt 2 SLASH               &kp RSHFT
-                                                 &lt 3  LCLK     &kp BACKSPACE     &showscreen    &kp DELETE  &kp SPACE
+                                                 &td_bs 3 MB1     &kp BACKSPACE     &showscreen    &kp DELETE  &kp SPACE
             >;
         };
 
