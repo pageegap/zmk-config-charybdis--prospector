@@ -20,9 +20,7 @@
 include:
   - board: seeeduino_xiao_ble
     shield: charybdis_dongle dongle_screen
-    snippets: 
-      - zmk-usb-logging
-      - studio-rpc-usb-uart
+    snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_STUDIO=n
 
   - board: nice_nano_v2
