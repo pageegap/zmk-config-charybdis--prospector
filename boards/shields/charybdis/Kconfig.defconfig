@@ -14,3 +14,5 @@ config ZMK_SPLIT
 	default y
 	
 endif
+
+LV_Z_MEM_POOL=16834
